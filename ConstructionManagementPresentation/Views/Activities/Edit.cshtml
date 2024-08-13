@@ -1,0 +1,42 @@
+﻿@model ConstructionManagementPresentation.Models.Activity
+
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4 text-center">Etkinliği Düzenle</h1>
+
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label asp-for="ActivityType" class="form-label"></label>
+            <input asp-for="ActivityType" class="form-control" />
+            <span asp-validation-for="ActivityType" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Date" class="form-label"></label>
+            <input asp-for="Date" type="date" class="form-control" />
+            <span asp-validation-for="Date" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label"></label>
+            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="WorkerId" class="form-label"></label>
+            <input asp-for="WorkerId" class="form-control" />
+            <span asp-validation-for="WorkerId" class="text-danger"></span>
+        </div>
+
+        <div class="text-center">
+            <input type="submit" value="Kaydet" class="btn btn-primary" />
+        </div>
+    </form>
+</div>

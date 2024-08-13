@@ -1,0 +1,28 @@
+﻿@model ConstructionManagementPresentation.Models.Activity
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+
+<div class="container mt-4">
+    <h1 class="mb-4 text-center">Etkinliği Sil</h1>
+
+    <div class="alert alert-warning" role="alert">
+        <h4 class="alert-heading">Silme İşlemi!</h4>
+        <p>Bu etkinliği silmek istediğinize emin misiniz?</p>
+    </div>
+
+    <ul class="list-group mb-4">
+        <li class="list-group-item"><strong>ID:</strong> @Model.Id</li>
+        <li class="list-group-item"><strong>Etkinlik Türü:</strong> @Model.ActivityType</li>
+        <li class="list-group-item"><strong>Tarih:</strong> @Model.Date.ToShortDateString()</li>
+        <li class="list-group-item"><strong>Açıklama:</strong> @Model.Description</li>
+        <li class="list-group-item"><strong>Çalışan ID:</strong> @Model.WorkerId</li>
+    </ul>
+
+    <form asp-action="DeleteConfirmed" method="post" class="text-center">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger btn-lg">Sil</button>
+    </form>
+</div>

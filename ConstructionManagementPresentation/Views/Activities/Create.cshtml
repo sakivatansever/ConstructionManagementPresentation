@@ -1,0 +1,41 @@
+﻿@model ConstructionManagementPresentation.ViewModels.ActivityViewModel
+
+<div class="container mt-4">
+    <h1 class="mb-4 text-center">Yeni Etkinlik Oluştur</h1>
+
+    <form asp-action="Create" method="post">
+        <div>
+            <label asp-for="Activity.ActivityType" class="form-label"></label>
+            <input asp-for="Activity.ActivityType" class="form-control" />
+            <span asp-validation-for="Activity.ActivityType" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Activity.Date" class="form-label"></label>
+            <input asp-for="Activity.Date" type="date" class="form-control" />
+            <span asp-validation-for="Activity.Date" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Activity.Description" class="form-label"></label>
+            <textarea asp-for="Activity.Description" class="form-control" rows="4"></textarea>
+            <span asp-validation-for="Activity.Description" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Activity.WorkerId" class="form-label"></label>
+            <select asp-for="Activity.WorkerId" class="form-select">
+                <option value="">-- Çalışan Seç --</option>
+                @foreach (var worker in Model.Workers)
+                {
+                    <option value="@worker.Value">@worker.Text</option>
+                }
+            </select>
+            <span asp-validation-for="Activity.WorkerId" class="text-danger"></span>
+        </div>
+
+        <div>
+            <input type="submit" value="Kaydet" class="btn btn-primary" />
+        </div>
+    </form>
+</div>

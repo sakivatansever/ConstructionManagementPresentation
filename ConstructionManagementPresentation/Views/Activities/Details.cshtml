@@ -1,0 +1,27 @@
+﻿@model ConstructionManagementPresentation.Models.Activity
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="container mt-4">
+    <h1 class="mb-4 text-center">Etkinlik Detayları</h1>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Etkinlik Bilgileri</h5>
+            <ul class="list-group mb-3">
+                <li class="list-group-item"><strong>ID:</strong> @Model.Id</li>
+                <li class="list-group-item"><strong>Etkinlik Türü:</strong> @Model.ActivityType</li>
+                <li class="list-group-item"><strong>Tarih:</strong> @Model.Date.ToShortDateString()</li>
+                <li class="list-group-item"><strong>Açıklama:</strong> @Model.Description</li>
+                <li class="list-group-item"><strong>Çalışan ID:</strong> @Model.WorkerId</li>
+            </ul>
+
+            <div class="d-flex justify-content-between">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Düzenle</a>
+                <a asp-action="Index" class="btn btn-secondary">Listeye Dön</a>
+            </div>
+        </div>
+    </div>
+</div>
